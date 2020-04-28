@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantRow from '../RestaurantRow/RestaurantRow';
+import { MyContext } from '../Context';
 
 const RestaurantsContainer = ({ restaurants }) => {
 
@@ -15,9 +16,13 @@ const RestaurantsContainer = ({ restaurants }) => {
   };
 
   return (
-    <div className="RestaurantsContainer" style={{border: "solid 1px black", width: "85vw"}}>
-      {displayRestaurants(restaurants)}
-    </div>
+    <MyContext.Consumer>
+      {context => (
+        <div className="RestaurantsContainer" style={{border: "solid 1px black", width: "85vw"}}>
+          {displayRestaurants(context.state.restaurants)}
+        </div>
+      )}
+    </MyContext.Consumer>
   );
 }
 

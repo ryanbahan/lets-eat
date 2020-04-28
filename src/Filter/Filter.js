@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = ({ name }) => {
 
   return (
-    <div className="Filter">
-      <p>Filter</p>
+    <div className="Filter" style={{margin: "1rem"}}>
+      <p>{name}</p>
     </div>
   );
 }
