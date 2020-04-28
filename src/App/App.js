@@ -1,19 +1,31 @@
 import React from 'react';
+import Form from '../Form/Form';
+import Paginator from '../Paginator/Paginator';
+import RestaurantsContainer from '../RestaurantsContainer/RestaurantsContainer';
+import { getRestaurants } from '../utils';
 import './App.css';
 
-const App = () => {
-
-  function test() {
-    fetch('https://code-challenge.spectrumtoolbox.com/api/restaurants', { headers: {
-      Authorization: 'Api-Key q3MNxtfep8Gt', },
-    }).then(res => res.json()).then(data => console.log(data))
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {}
   }
 
-  return (
-    <div className="App">
-    {test()}
-    </div>
-  );
+  componentDidMount() {
+    getRestaurants()
+    .then(data => this.setState({restaurants: data}));
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Let's Eat!</h1>
+        <Paginator />
+        <Form />
+        <RestaurantsContainer />
+      </div>
+    )
+  }
 }
 
 export default App;
