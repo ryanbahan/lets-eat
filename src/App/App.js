@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
 
   function test() {
     fetch('https://code-challenge.spectrumtoolbox.com/api/restaurants', { headers: {
