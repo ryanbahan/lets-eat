@@ -1,10 +1,10 @@
 import React from 'react';
 
-const RestaurantRow = () => {
+const RestaurantRow = ({ name }) => {
 
   return (
     <div className="RestaurantRow">
-      <p>RestaurantRow</p>
+      <p>{name}</p>
     </div>
   );
 }

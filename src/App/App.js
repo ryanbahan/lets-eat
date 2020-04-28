@@ -8,7 +8,7 @@ import './App.css';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {restaurants: []}
   }
 
   componentDidMount() {
@@ -22,7 +22,9 @@ class App extends React.Component {
         <h1>Let's Eat!</h1>
         <Paginator />
         <Form />
-        <RestaurantsContainer />
+        <RestaurantsContainer
+          restaurants={this.state.restaurants}
+        />
       </div>
     )
   }
