@@ -17,7 +17,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems:" center"}}>
         <h1>Let's Eat!</h1>
         <Paginator />
         <Form />
