@@ -3,7 +3,6 @@ import Form from '../Form/Form';
 import Paginator from '../Paginator/Paginator';
 import RestaurantsContainer from '../RestaurantsContainer/RestaurantsContainer';
 import { getRestaurants } from '../utils';
-import './App.css';
 
 class App extends React.Component {
   constructor() {
