@@ -2,9 +2,9 @@ import React from 'react';
 import RestaurantRow from '../RestaurantRow/RestaurantRow';
 import { MyContext } from '../Context';
 
-const RestaurantsContainer = ({ restaurants }) => {
+const RestaurantsContainer = () => {
 
-  const displayRestaurants = (data) => {
+  const displayRestaurants = data => {
     return data.map(restaurant =>
       (
         <RestaurantRow
