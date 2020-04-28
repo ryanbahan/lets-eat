@@ -3,7 +3,7 @@ import React from 'react';
 const RestaurantRowDropdown = () => {
 
   return (
-    <div className="RestaurantRowDropdown">
+    <div className="RestaurantRowDropdown" style={{flexBasis: "100%"}}>
       <p>RestaurantRowDropdown</p>
     </div>
   );
