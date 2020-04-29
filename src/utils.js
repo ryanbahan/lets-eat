@@ -1,10 +1,16 @@
-export const getRestaurants = () => {
-  return fetch('https://code-challenge.spectrumtoolbox.com/api/restaurants',
+// api calls
+
+export const getRestaurants = async () => {
+  const res = await fetch('https://code-challenge.spectrumtoolbox.com/api/restaurants',
     { headers: {
       Authorization: 'Api-Key q3MNxtfep8Gt', },
     }
-  ).then(res => res.json())
+  )
+
+  return res.json();
 };
+
+// helpers for mapping all available states/genres to filters
 
 export const getGenres = (data) => {
   const items = data.map(restaurant => restaurant.genre.split(',')).flat();
@@ -16,6 +22,8 @@ export const getStates = (data) => {
   const sortedItems = items.sort();
   return [...new Set(sortedItems)];
 }
+
+// selectors for presenting specific restaurants without using derived state
 
 export const getFilteredRestaurants = (restaurants, filters, searchText) => {
   const filteredByState = restaurants.filter(restaurant => filterByState(filters, restaurant));

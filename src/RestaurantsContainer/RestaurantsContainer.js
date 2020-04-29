@@ -3,6 +3,7 @@ import RestaurantRow from '../RestaurantRow/RestaurantRow';
 import { MyContext } from '../Context';
 import { getFilteredRestaurants, getPaginatedSlice } from '../utils';
 import Paginator from '../Paginator/Paginator';
+import { containerStyles } from '../miscStyles';
 
 const RestaurantsContainer = () => {
 
@@ -22,12 +23,6 @@ const RestaurantsContainer = () => {
   const getLength = (restaurants, filters, searchText) => {
     return getFilteredRestaurants(restaurants, filters, searchText).length;
   }
-
-  const containerStyles = {
-    width: "55vw",
-    minWidth: "25rem",
-    maxWidth: "50rem",
-  };
 
   return (
 
@@ -55,7 +50,9 @@ const RestaurantsContainer = () => {
           context.state.filters,
           context.state.searchText)
           &&
-          <div style={{margin: "2.5rem 0"}}><p>Sorry, nothing matches your search - try again!</p></div>
+          <div style={{margin: "2.5rem 0"}}>
+            <p>Sorry, nothing matches your search - try again!</p>
+          </div>
         }
         </div>
       )}

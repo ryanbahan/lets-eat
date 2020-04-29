@@ -1,5 +1,6 @@
 import React from 'react';
 import { MyContext } from '../Context';
+import { modalStyles, dropdownStyles } from '../miscStyles';
 
 class Filter extends React.Component {
   static contextType = MyContext;
@@ -30,16 +31,18 @@ class Filter extends React.Component {
   updateForm = (selection) => {
     let updatedItems;
     this.context.update({pageIndex: 1});
+
     if (this.context.state.filters.find(item => item === selection)) {
       updatedItems = this.context.state.filters.filter(item => item !== selection);
     } else {
       updatedItems = this.context.state.filters.concat([selection]);
     }
+
     this.context.update({filters: [...updatedItems]})
   }
 
-  displayItems(items) {
-    const listItems = items.map(item => (
+  getListItems = (items) => {
+    return items.map(item => (
       <div key={item} style={{display: "flex", alignItems: "baseline"}}>
         <input
           type="checkbox"
@@ -48,27 +51,26 @@ class Filter extends React.Component {
         />
         <p id={item}>{item}</p>
       </div>
-    ))
+    ));
+  }
 
-    const modalStyles = {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      position: "fixed",
-      top: "0",
-      left: "0",
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "rgba(0,0,0,0.25)"}
+  displayList = (items) => {
+    const listItems = this.getListItems(items);
 
     return (
       <div className="modal-bg" style={modalStyles}>
-      <div className="filter-dropdown" style={{backgroundColor: "white", border: "solid 1px black", height: "50%", width: "50%", overflow: "scroll"}}>
-        <button type="button" onClick={() => this.closeModal()} style={{cursor: "pointer"}}>Close</button>
+      <div className="filter-dropdown" style={dropdownStyles}>
+        <button
+          type="button"
+          onClick={() => this.closeModal()}
+          style={{cursor: "pointer"}}
+        >
+          Close
+        </button>
         {listItems}
       </div>
       </div>
-    )
+    );
   }
 
   render() {
@@ -94,7 +96,7 @@ class Filter extends React.Component {
               {this.props.name}
               <i className="fas fa-caret-down"></i>
             </button>
-            {this.state.dropdown && this.displayItems(this.props.items)}
+            {this.state.dropdown && this.displayList(this.props.items)}
           </>
         )}
       </MyContext.Consumer>
