@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyContext } from '../Context';
-import { modalStyles, dropdownStyles } from '../miscStyles';
+import { dropdownStyles } from '../miscStyles';
 
 class Filter extends React.Component {
   static contextType = MyContext;
