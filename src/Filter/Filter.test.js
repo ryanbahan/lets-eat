@@ -7,13 +7,14 @@ describe("Filter", () => {
 
   beforeEach(() => {
     utils = render(
-      <Filter />
+      <Filter name="State"/>
     )
   });
 
   it("should render the correct items", () => {
     const { getByText, getByPlaceholderText, debug } = utils;
+    const title = getByText("State");
 
-    debug();
+    expect(title).toBeInTheDocument();
   });
 });
