@@ -55,3 +55,8 @@ const filterByQuery = (restaurants, searchText) => {
 const sortAlphabetically = (data) => {
   return data.sort((a,b) => (a.name > b.name) ? 1 : -1);
 }
+
+export const getPaginatedSlice = (restaurants, index) => {
+  console.log(index);
+  return restaurants;
+}
