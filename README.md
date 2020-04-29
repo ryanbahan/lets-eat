@@ -2,7 +2,7 @@
 
 ### Deployment
 
-[Let's Eat on Gh Pages](https://ryanbahan.github.io/lets-eat/)
+[Let's Eat on GH Pages](https://ryanbahan.github.io/lets-eat/)
 
 ### Developer Notes
 
