@@ -21,7 +21,9 @@ class Filter extends React.Component {
   }
 
   checkFilteredItems = (selection) => {
-    if (this.context.state.filters.find(item => item === selection)) {
+    const { filters } = this.context.state;
+
+    if (filters.find(item => item === selection)) {
       return false;
     } else {
       return true;
@@ -29,13 +31,15 @@ class Filter extends React.Component {
   }
 
   updateForm = (selection) => {
-    let updatedItems;
     this.context.update({pageIndex: 1});
 
-    if (this.context.state.filters.find(item => item === selection)) {
-      updatedItems = this.context.state.filters.filter(item => item !== selection);
+    const { filters } = this.context.state;
+    let updatedItems;
+
+    if (filters.find(item => item === selection)) {
+      updatedItems = filters.filter(item => item !== selection);
     } else {
-      updatedItems = this.context.state.filters.concat([selection]);
+      updatedItems = filters.concat([selection]);
     }
 
     this.context.update({filters: [...updatedItems]})
