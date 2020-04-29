@@ -5,8 +5,8 @@ import { getFilteredRestaurants } from '../utils';
 
 const RestaurantsContainer = () => {
 
-  const displayRestaurants = (restaurants, filters) => {
-    const filteredRestaurants = getFilteredRestaurants(restaurants, filters);
+  const displayRestaurants = (restaurants, filters, searchText) => {
+    const filteredRestaurants = getFilteredRestaurants(restaurants, filters, searchText);
     return filteredRestaurants.map(restaurant =>
       (
         <RestaurantRow
@@ -21,7 +21,7 @@ const RestaurantsContainer = () => {
     <MyContext.Consumer>
       {context => (
         <div className="RestaurantsContainer" style={{border: "solid 1px black", width: "85vw"}}>
-          {displayRestaurants(context.state.restaurants, context.state.filters)}
+          {displayRestaurants(context.state.restaurants, context.state.filters, context.state.searchText)}
         </div>
       )}
     </MyContext.Consumer>

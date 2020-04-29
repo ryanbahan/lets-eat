@@ -17,11 +17,11 @@ export const getStates = (data) => {
   return [...new Set(sortedItems)];
 }
 
-export const getFilteredRestaurants = (restaurants, filters) => {
+export const getFilteredRestaurants = (restaurants, filters, searchText) => {
   const filteredByState = restaurants.filter(restaurant => filterByState(filters, restaurant));
   const filteredByStateAndGenre = filteredByState.filter(restaurant => filterByGenre(filters, restaurant.genre));
-
-  return filteredByStateAndGenre;
+  const allFiltered = filterByQuery(filteredByStateAndGenre, searchText);
+  return allFiltered;
 }
 
 const filterByState = (filters, restaurant) => {
@@ -34,5 +34,20 @@ const filterByGenre = (filters, genre) => {
     return false;
   } else {
     return true;
+  }
+}
+
+const filterByQuery = (restaurants, searchText) => {
+  if (searchText) {
+    let query = new RegExp(searchText, "gi");
+    return restaurants.filter(restaurant => {
+      return (
+        restaurant.name.match(query) ||
+        restaurant.city.match(query) ||
+        restaurant.genre.match(query)
+      );
+    });
+  } else {
+    return restaurants;
   }
 }
