@@ -4,13 +4,10 @@ import { MyContext } from '../Context';
 import { getStates, getGenres } from '../utils';
 
 class Form extends React.Component {
-  constructor() {
-    super();
-    this.state = {searchText: ""}
-  }
+  static contextType = MyContext;
 
   update = (e) => {
-    this.setState({[e.target.id]: e.target.value})
+    this.context.update({searchText: e.target.value});
   }
 
   render() {
@@ -18,7 +15,7 @@ class Form extends React.Component {
       <MyContext.Consumer>
         {context => (
           <form className="Form" style={{display: "flex", border: "solid 1px black", width: "85vw", justifyContent: "center", alignItems: "baseline"}}>
-            <input type="text" value={this.state.searchText} onChange={this.update} id="searchText" placeholder="Search..." style={{height: "1.25rem"}}/>
+            <input type="text" onChange={this.update} id="searchText" placeholder="Search..." style={{height: "1.25rem"}}/>
             <Filter name="State" items={getStates(context.state.restaurants)} />
             <Filter name="Genre" items={getGenres(context.state.restaurants)} />
           </form>
