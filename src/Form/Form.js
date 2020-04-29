@@ -19,8 +19,8 @@ class Form extends React.Component {
         {context => (
           <form className="Form" style={{display: "flex", border: "solid 1px black", width: "85vw", justifyContent: "center", alignItems: "baseline"}}>
             <input type="text" value={this.state.searchText} onChange={this.update} id="searchText" placeholder="Search..." style={{height: "1.25rem"}}/>
-            <Filter name="State" items={getGenres(context.state.restaurants)} />
-            <Filter name="Genre" items={getStates(context.state.restaurants)} />
+            <Filter name="State" items={getStates(context.state.restaurants)} />
+            <Filter name="Genre" items={getGenres(context.state.restaurants)} />
           </form>
         )}
       </MyContext.Consumer>

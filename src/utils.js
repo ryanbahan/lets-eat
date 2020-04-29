@@ -13,5 +13,6 @@ export const getGenres = (data) => {
 
 export const getStates = (data) => {
   const items = data.map(restaurant => restaurant.state);
-  return [...new Set(items)];
+  const sortedItems = items.sort();
+  return [...new Set(sortedItems)];
 }

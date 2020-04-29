@@ -9,7 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <MyProvider>
-        <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems:" center"}}>
+        <div className="App" style={{position: "relative", display: "flex", flexDirection: "column", justifyContent: "center", alignItems:" center"}}>
           <h1>Let's Eat!</h1>
           <Paginator />
           <Form />
