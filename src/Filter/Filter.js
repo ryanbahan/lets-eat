@@ -58,13 +58,13 @@ class Filter extends React.Component {
   render() {
     return (
       <MyContext.Consumer>
-      {context => (
-        <div className="Filter" style={{display: "flex", margin: "1rem", border: "solid 1px black", padding: "0 1rem"}}>
-          <p>{this.props.name}</p>
-          <p style={{paddingLeft: "0.25rem"}} onClick={() => this.toggleDropdown()}>></p>
-          {this.state.dropdown && this.displayItems(this.props.items)}
-        </div>
-      )}
+        {context => (
+          <div className="Filter" style={{display: "flex", margin: "1rem", border: "solid 1px black", padding: "0 1rem"}}>
+            <p>{this.props.name}</p>
+            <p style={{paddingLeft: "0.25rem"}} onClick={() => this.toggleDropdown()}>></p>
+            {this.state.dropdown && this.displayItems(this.props.items)}
+          </div>
+        )}
       </MyContext.Consumer>
     );
   }
