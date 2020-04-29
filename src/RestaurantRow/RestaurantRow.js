@@ -1,5 +1,4 @@
 import React from 'react';
-import RestaurantRowDropdown from '../RestaurantRowDropdown/RestaurantRowDropdown';
 
 class RestaurantRow extends React.Component {
   constructor() {
@@ -14,6 +13,19 @@ class RestaurantRow extends React.Component {
   }
 
   render() {
+
+    const {
+      name,
+      genre,
+      address1,
+      city,
+      state,
+      zip,
+      telephone,
+      website,
+      tags
+    } = this.props.restaurantData;
+
     const rowStyles = {
       border: "solid 0.5px rgba(0,0,0,0.25)",
       borderRadius: "0.25rem",
@@ -39,9 +51,18 @@ class RestaurantRow extends React.Component {
 
     return (
       <div className="RestaurantRow" style={rowStyles}>
-        <p onClick={() => this.toggleDropdown()} style={titleStyles}>{this.props.name}</p>
+        <p onClick={() => this.toggleDropdown()} style={titleStyles}>{name}</p>
         <p onClick={() => this.toggleDropdown()} style={buttonStyles}>+</p>
-        {this.state.dropdown && <RestaurantRowDropdown />}
+        {this.state.dropdown &&
+          <div className="RestaurantRowDropdown" style={{flexBasis: "100%"}}>
+            <p>{genre}</p>
+            <p>{address1}</p>
+            <p>{city}, {state}, {zip}</p>
+            <p>{telephone}</p>
+            <p>{website}</p>
+            <p>tags: {tags}</p>
+          </div>
+        }
       </div>
     );
   }

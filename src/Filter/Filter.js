@@ -40,13 +40,19 @@ class Filter extends React.Component {
   displayItems(items) {
     const listItems = items.map(item => (
       <div key={item} style={{display: "flex", alignItems: "baseline"}}>
-        <input type="checkbox" onClick={() => this.updateForm(item)} defaultChecked={this.checkFilteredItems(item)} />
+        <input
+          type="checkbox"
+          onClick={() => this.updateForm(item)}
+          defaultChecked={this.checkFilteredItems(item)}
+        />
         <p id={item}>{item}</p>
       </div>
     ))
 
+    const modalStyles = {display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.25)"}
+
     return (
-      <div className="modal-bg" style={{display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.25)"}}>
+      <div className="modal-bg" style={modalStyles}>
       <div className="filter-dropdown" style={{backgroundColor: "white", border: "solid 1px black", height: "50%", width: "50%", overflow: "scroll"}}>
         <button type="button" onClick={() => this.closeModal()} style={{cursor: "pointer"}}>Close</button>
         {listItems}

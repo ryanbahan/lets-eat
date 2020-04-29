@@ -11,7 +11,7 @@ const RestaurantsContainer = () => {
       (
         <RestaurantRow
           key={restaurant.id}
-          name={restaurant.name}
+          restaurantData={{...restaurant}}
         />
       )
     )
