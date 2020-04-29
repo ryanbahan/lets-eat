@@ -28,6 +28,7 @@ const RestaurantsContainer = () => {
     <MyContext.Consumer>
       {context => (
         <div className="RestaurantsContainer" style={containerStyles}>
+        {console.log(context.state.restaurants)}
           {displayRestaurants(context.state.restaurants, context.state.filters, context.state.searchText)}
         </div>
       )}

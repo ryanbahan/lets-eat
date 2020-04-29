@@ -39,9 +39,9 @@ class RestaurantRow extends React.Component {
     };
 
     const buttonStyles = {
-      fontSize: "2rem",
-      margin: "-2rem 0",
+      fontSize: "1.5rem",
       cursor: "pointer",
+      margin: "0.25rem 0.5rem",
     };
 
     const titleStyles = {
@@ -52,7 +52,10 @@ class RestaurantRow extends React.Component {
     return (
       <div className="RestaurantRow" style={rowStyles}>
         <p onClick={() => this.toggleDropdown()} style={titleStyles}>{name}</p>
-        <p onClick={() => this.toggleDropdown()} style={buttonStyles}>+</p>
+        <div style={{display: "flex", alignItems: "baseline"}}>
+          <i class="fas fa-phone-volume" style={buttonStyles} ></i>
+          <i onClick={() => this.toggleDropdown()} class="fas fa-caret-down" style={buttonStyles} ></i>
+        </div>
         {this.state.dropdown &&
           <div className="RestaurantRowDropdown" style={{flexBasis: "100%"}}>
             <p>{genre}</p>

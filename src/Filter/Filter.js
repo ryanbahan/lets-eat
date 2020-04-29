@@ -68,7 +68,14 @@ class Filter extends React.Component {
       border: "solid 0.5px rgba(0,0,0,0.25)",
       borderRadius: "0.25rem",
       padding: "0 1rem",
-      alignItems: "baseline",
+      alignItems: "center",
+    };
+
+    const buttonStyles = {
+      paddingLeft: "0.25rem",
+      cursor: "pointer",
+      fontSize: "1.5rem",
+      margin: "-2rem 0"
     };
 
     return (
@@ -76,7 +83,7 @@ class Filter extends React.Component {
         {context => (
           <div className="Filter" style={filterStyles}>
             <p style={{cursor: "pointer"}} onClick={() => this.toggleDropdown()}>{this.props.name}</p>
-            <p style={{paddingLeft: "0.25rem", cursor: "pointer", fontSize: "1.5rem", margin: "-2rem 0"}} onClick={() => this.toggleDropdown()}>></p>
+            <i class="fas fa-caret-down" onClick={() => this.toggleDropdown()} style={buttonStyles} ></i>
             {this.state.dropdown && this.displayItems(this.props.items)}
           </div>
         )}
