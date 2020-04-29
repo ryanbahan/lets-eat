@@ -57,7 +57,7 @@ class Form extends React.Component {
               placeholder="Search..."
               style={inputStyles}
             />
-            <div style={{display: "flex"}}>
+            <div style={{display: "flex", flexBasis: "100%"}}>
               <Filter
                 name="State"
                 items={getStates(context.state.restaurants)}

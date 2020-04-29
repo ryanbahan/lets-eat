@@ -47,7 +47,7 @@ class Filter extends React.Component {
 
   getListItems = (items) => {
     return items.map(item => (
-      <div key={item} style={{display: "flex", alignItems: "baseline"}}>
+      <div key={item} style={{display: "flex", alignItems: "baseline", padding: "0.5rem"}}>
         <input
           type="checkbox"
           onClick={() => this.updateForm(item)}
@@ -62,17 +62,8 @@ class Filter extends React.Component {
     const listItems = this.getListItems(items);
 
     return (
-      <div className="modal-bg" style={modalStyles}>
       <div className="filter-dropdown" style={dropdownStyles}>
-        <button
-          type="button"
-          onClick={() => this.closeModal()}
-          style={{cursor: "pointer"}}
-        >
-          Close
-        </button>
         {listItems}
-      </div>
       </div>
     );
   }
@@ -91,7 +82,7 @@ class Filter extends React.Component {
     return (
       <MyContext.Consumer>
         {context => (
-          <>
+          <div style={{flexWrap: "wrap"}}>
             <button
               type="button"
               onClick={() => this.toggleDropdown()}
@@ -101,7 +92,7 @@ class Filter extends React.Component {
               <i className="fas fa-caret-down"></i>
             </button>
             {this.state.dropdown && this.displayList(this.props.items)}
-          </>
+          </div>
         )}
       </MyContext.Consumer>
     );

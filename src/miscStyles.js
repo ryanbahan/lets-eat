@@ -13,11 +13,14 @@ export const modalStyles = {
 };
 
 export const dropdownStyles = {
-  backgroundColor: "white",
-  border: "solid 1px black",
-  height: "50%",
-  width: "50%",
-  overflow: "scroll"
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+  gridTemplateRows: "1fr 1fr 1fr",
+  position: "absolute",
+  backgroundColor: "#fff",
+  border: "solid 0.5px rgba(0,0,0,0.25)",
+  borderRadius: "0.25rem",
+  padding: "0.5rem",
 };
 
 export const paginatorStyles = {
