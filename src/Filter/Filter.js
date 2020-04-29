@@ -48,7 +48,7 @@ class Filter extends React.Component {
     return (
       <div className="modal-bg" style={{display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.25)"}}>
       <div className="filter-dropdown" style={{backgroundColor: "white", border: "solid 1px black", height: "50%", width: "50%", overflow: "scroll"}}>
-        <button type="button" onClick={() => this.closeModal()}>Close</button>
+        <button type="button" onClick={() => this.closeModal()} style={{cursor: "pointer"}}>Close</button>
         {listItems}
       </div>
       </div>
@@ -56,12 +56,21 @@ class Filter extends React.Component {
   }
 
   render() {
+    const filterStyles = {
+      display: "flex",
+      margin: "1rem",
+      border: "solid 0.5px rgba(0,0,0,0.25)",
+      borderRadius: "0.25rem",
+      padding: "0 1rem",
+      alignItems: "baseline",
+    };
+
     return (
       <MyContext.Consumer>
         {context => (
-          <div className="Filter" style={{display: "flex", margin: "1rem", border: "solid 1px black", padding: "0 1rem"}}>
-            <p>{this.props.name}</p>
-            <p style={{paddingLeft: "0.25rem"}} onClick={() => this.toggleDropdown()}>></p>
+          <div className="Filter" style={filterStyles}>
+            <p style={{cursor: "pointer"}} onClick={() => this.toggleDropdown()}>{this.props.name}</p>
+            <p style={{paddingLeft: "0.25rem", cursor: "pointer", fontSize: "1.5rem", margin: "-2rem 0"}} onClick={() => this.toggleDropdown()}>></p>
             {this.state.dropdown && this.displayItems(this.props.items)}
           </div>
         )}

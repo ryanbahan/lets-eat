@@ -17,10 +17,17 @@ const RestaurantsContainer = () => {
     )
   };
 
+  const containerStyles = {
+    width: "55vw",
+    minWidth: "25rem",
+    maxWidth: "50rem",
+  };
+
   return (
+
     <MyContext.Consumer>
       {context => (
-        <div className="RestaurantsContainer" style={{border: "solid 1px black", width: "85vw"}}>
+        <div className="RestaurantsContainer" style={containerStyles}>
           {displayRestaurants(context.state.restaurants, context.state.filters, context.state.searchText)}
         </div>
       )}
