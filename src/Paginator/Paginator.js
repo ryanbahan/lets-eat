@@ -10,7 +10,8 @@ const Paginator = ({length = 0}) => {
   };
 
   const buttonStyles = {
-    margin: "1rem 0.25rem 0 0.25rem"
+    margin: "1rem 0.25rem 0 0.25rem",
+    cursor: "pointer",
   }
 
   const displayNumbers = (length, fn) => {

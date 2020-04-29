@@ -57,6 +57,5 @@ const sortAlphabetically = (data) => {
 }
 
 export const getPaginatedSlice = (restaurants, index) => {
-  console.log(index);
-  return restaurants;
+  return restaurants.slice((index * 10) - 10, index * 10);
 }

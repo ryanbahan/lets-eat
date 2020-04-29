@@ -10,6 +10,10 @@ class Form extends React.Component {
     this.context.update({filters: []});
   }
 
+  update = (e) => {
+    this.context.update({searchText: e.target.value});
+  }
+
   render() {
     const formStyles = {
       display: "flex",
