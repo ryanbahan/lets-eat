@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Form from './Form';
-import MyProvider from '../Context';
+import MyProvider from '../../utils/Context';
 
 describe("Form", () => {
   let utils;

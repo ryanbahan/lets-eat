@@ -1,9 +1,9 @@
 import React from 'react';
 import RestaurantRow from '../RestaurantRow/RestaurantRow';
-import { MyContext } from '../Context';
-import { getFilteredRestaurants, getPaginatedSlice } from '../utils';
+import { MyContext } from '../../utils/Context';
+import { getFilteredRestaurants, getPaginatedSlice } from '../../utils';
 import Paginator from '../Paginator/Paginator';
-import { containerStyles } from '../miscStyles';
+import { containerStyles } from '../../utils/miscStyles';
 
 const RestaurantsContainer = () => {
 

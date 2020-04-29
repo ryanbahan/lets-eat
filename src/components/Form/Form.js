@@ -1,7 +1,7 @@
 import React from 'react';
 import Filter from '../Filter/Filter';
-import { MyContext } from '../Context';
-import { getStates, getGenres } from '../utils';
+import { MyContext } from '../../utils/Context';
+import { getStates, getGenres } from '../../utils';
 
 class Form extends React.Component {
   static contextType = MyContext;

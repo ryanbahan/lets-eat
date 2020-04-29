@@ -1,6 +1,6 @@
 import React from 'react';
-import { MyContext } from '../Context';
-import { buttonStyles, paginatorStyles } from '../miscStyles';
+import { MyContext } from '../../utils/Context';
+import { buttonStyles, paginatorStyles } from '../../utils/miscStyles';
 
 const Paginator = ({length = 0}) => {
 

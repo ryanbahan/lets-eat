@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../Form/Form';
 import RestaurantsContainer from '../RestaurantsContainer/RestaurantsContainer';
-import MyProvider from '../Context';
+import MyProvider from '../../utils/Context';
 
 const appStyles = {
   position: "relative",

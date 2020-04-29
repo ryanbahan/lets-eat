@@ -1,5 +1,5 @@
 import React from 'react';
-import { getRestaurants } from './utils';
+import { getRestaurants } from '.';
 
 export const MyContext = React.createContext();
 
