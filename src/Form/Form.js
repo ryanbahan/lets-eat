@@ -34,7 +34,7 @@ class Form extends React.Component {
       fontSize: "1.5rem",
       flexGrow: "1",
       paddingLeft: "0.5rem",
-      margin: "1rem",
+      margin: "1rem 1rem 1rem 0.5rem",
     }
 
     const buttonStyles = {
