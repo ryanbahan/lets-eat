@@ -12,7 +12,7 @@ describe("Filter", () => {
   });
 
   it("should render the correct items", () => {
-    const { getByText, getByPlaceholderText, debug } = utils;
+    const { getByText } = utils;
     const title = getByText("State");
 
     expect(title).toBeInTheDocument();
