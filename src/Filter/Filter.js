@@ -29,6 +29,7 @@ class Filter extends React.Component {
 
   updateForm = (selection) => {
     let updatedItems;
+    this.context.update({pageIndex: 1});
     if (this.context.state.filters.find(item => item === selection)) {
       updatedItems = this.context.state.filters.filter(item => item !== selection);
     } else {
@@ -49,7 +50,16 @@ class Filter extends React.Component {
       </div>
     ))
 
-    const modalStyles = {display: "flex", justifyContent: "center", alignItems: "center", position: "fixed", top: "0", left: "0", width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.25)"}
+    const modalStyles = {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      position: "fixed",
+      top: "0",
+      left: "0",
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.25)"}
 
     return (
       <div className="modal-bg" style={modalStyles}>

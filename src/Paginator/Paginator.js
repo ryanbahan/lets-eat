@@ -13,13 +13,21 @@ const Paginator = ({length = 0}) => {
     margin: "1rem 0.25rem 0 0.25rem"
   }
 
-  const displayNumbers = length => {
+  const displayNumbers = (length, fn) => {
     let nums = [];
     for (let i = 0; i < length / 10; i++) {
       nums.push(i + 1);
     }
+
     return nums.map(num => (
-      <button type="button" key={num} style={buttonStyles}>{num}</button>
+      <button
+        type="button"
+        key={num}
+        style={buttonStyles}
+        onClick={() => fn({pageIndex: parseInt(num)})}
+      >
+        {num}
+      </button>
     ))
   }
 
@@ -28,8 +36,7 @@ const Paginator = ({length = 0}) => {
     <MyContext.Consumer>
     {context => (
       <div className="Paginator" style={paginatorStyles}>
-      {console.log(Math.ceil(length / 10))}
-        {displayNumbers(length)}
+        {displayNumbers(length, context.update)}
       </div>
     )}
     </MyContext.Consumer>

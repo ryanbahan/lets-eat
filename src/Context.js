@@ -8,6 +8,7 @@ export default class MyProvider extends React.Component {
     restaurants: [],
     filters: [],
     searchText: "",
+    pageIndex: 1,
   }
 
   componentDidMount() {
