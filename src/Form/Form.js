@@ -12,6 +12,7 @@ class Form extends React.Component {
 
   update = (e) => {
     this.context.update({searchText: e.target.value});
+    this.context.update({pageIndex: 1});
   }
 
   render() {
