@@ -29,6 +29,9 @@ const RestaurantsContainer = () => {
       {context => (
         <div className="RestaurantsContainer" style={containerStyles}>
           {displayRestaurants(context.state.restaurants, context.state.filters, context.state.searchText)}
+          {!displayRestaurants(context.state.restaurants, context.state.filters, context.state.searchText).length &&
+            <div style={{margin: "2.5rem 0"}}><p>Sorry, nothing matches your search - try again!</p></div>
+          }
         </div>
       )}
     </MyContext.Consumer>

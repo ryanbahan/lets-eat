@@ -49,11 +49,18 @@ class RestaurantRow extends React.Component {
       cursor: "pointer",
     }
 
+    const linkStyles = {
+      display: "block",
+      padding: "0.5rem 0",
+      fontWeight: "600",
+      color: "#000",
+    }
+
     return (
       <div className="RestaurantRow" style={rowStyles}>
         <p onClick={() => this.toggleDropdown()} style={titleStyles}>{name}</p>
         <div style={{display: "flex", alignItems: "baseline"}}>
-          <i className="fas fa-phone-volume" style={buttonStyles} ></i>
+          <a href={`tel:${telephone}`} style={linkStyles}><i className="fas fa-phone-volume" style={buttonStyles} ></i></a>
           <i onClick={() => this.toggleDropdown()} className="fas fa-caret-down" style={buttonStyles} ></i>
         </div>
         {this.state.dropdown &&
@@ -61,8 +68,8 @@ class RestaurantRow extends React.Component {
             <p>{genre}</p>
             <p>{address1}</p>
             <p>{city}, {state}, {zip}</p>
-            <p>{telephone}</p>
-            <p>{website}</p>
+            <a href={`tel:${telephone}`} style={linkStyles}>{telephone}</a>
+            <a href={{website}} style={linkStyles}>{website}</a>
             <p>tags: {tags}</p>
           </div>
         }
