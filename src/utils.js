@@ -16,3 +16,23 @@ export const getStates = (data) => {
   const sortedItems = items.sort();
   return [...new Set(sortedItems)];
 }
+
+export const getFilteredRestaurants = (restaurants, filters) => {
+  const filteredByState = restaurants.filter(restaurant => filterByState(filters, restaurant));
+  const filteredByStateAndGenre = filteredByState.filter(restaurant => filterByGenre(filters, restaurant.genre));
+
+  return filteredByStateAndGenre;
+}
+
+const filterByState = (filters, restaurant) => {
+  return !filters.find(item => item === restaurant.state);
+}
+
+const filterByGenre = (filters, genre) => {
+  const genres = genre.split(',');
+  if (filters.find(filter => genres.find(genre => genre === filter)))  {
+    return false;
+  } else {
+    return true;
+  }
+}

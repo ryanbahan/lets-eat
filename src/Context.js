@@ -7,6 +7,7 @@ export default class MyProvider extends React.Component {
   state = {
     restaurants: [],
     filters: [],
+    searchText: "",
   }
 
   componentDidMount() {
@@ -15,7 +16,7 @@ export default class MyProvider extends React.Component {
   }
 
   update = (item) => {
-    this.setState(item)
+    this.setState(item);
   }
 
   render() {
