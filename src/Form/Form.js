@@ -6,8 +6,8 @@ import { getStates, getGenres } from '../utils';
 class Form extends React.Component {
   static contextType = MyContext;
 
-  update = (e) => {
-    this.context.update({searchText: e.target.value});
+  clearFilters = () => {
+    this.context.update({filters: []});
   }
 
   render() {
@@ -32,6 +32,15 @@ class Form extends React.Component {
       margin: "1rem",
     }
 
+    const buttonStyles = {
+      cursor: "pointer",
+      fontSize: "1.5rem",
+      border: "solid 0.5px rgba(0,0,0,0.25)",
+      borderRadius: "0.25rem",
+      padding: "0.75rem",
+      margin: "0.5rem",
+    };
+
     return (
       <MyContext.Consumer>
         {context => (
@@ -49,9 +58,16 @@ class Form extends React.Component {
                 items={getStates(context.state.restaurants)}
               />
               <Filter
-                name="Genre"
+                name="Cuisine"
                 items={getGenres(context.state.restaurants)}
               />
+              <button
+                type="button"
+                style={buttonStyles}
+                onClick={this.clearFilters}
+              >
+                Clear filters
+              </button>
             </div>
           </form>
         )}

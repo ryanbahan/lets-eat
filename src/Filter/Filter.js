@@ -62,30 +62,30 @@ class Filter extends React.Component {
   }
 
   render() {
-    const filterStyles = {
-      display: "flex",
-      margin: "1rem",
-      border: "solid 0.5px rgba(0,0,0,0.25)",
-      borderRadius: "0.25rem",
-      padding: "0 1rem",
-      alignItems: "center",
-    };
 
     const buttonStyles = {
-      paddingLeft: "0.25rem",
       cursor: "pointer",
       fontSize: "1.5rem",
-      margin: "-2rem 0"
+      border: "solid 0.5px rgba(0,0,0,0.25)",
+      borderRadius: "0.25rem",
+      padding: "0.75rem",
+      margin: "0.5rem",
     };
 
     return (
       <MyContext.Consumer>
         {context => (
-          <div className="Filter" style={filterStyles}>
-            <p style={{cursor: "pointer"}} onClick={() => this.toggleDropdown()}>{this.props.name}</p>
-            <i className="fas fa-caret-down" onClick={() => this.toggleDropdown()} style={buttonStyles} ></i>
+          <>
+            <button
+              type="button"
+              onClick={() => this.toggleDropdown()}
+              style={buttonStyles}
+            >
+              {this.props.name}
+              <i className="fas fa-caret-down"></i>
+            </button>
             {this.state.dropdown && this.displayItems(this.props.items)}
-          </div>
+          </>
         )}
       </MyContext.Consumer>
     );
