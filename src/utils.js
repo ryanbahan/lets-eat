@@ -21,7 +21,7 @@ export const getFilteredRestaurants = (restaurants, filters, searchText) => {
   const filteredByState = restaurants.filter(restaurant => filterByState(filters, restaurant));
   const filteredByStateAndGenre = filteredByState.filter(restaurant => filterByGenre(filters, restaurant.genre));
   const allFiltered = filterByQuery(filteredByStateAndGenre, searchText);
-  return allFiltered;
+  return sortAlphabetically(allFiltered);
 }
 
 const filterByState = (filters, restaurant) => {
@@ -50,4 +50,8 @@ const filterByQuery = (restaurants, searchText) => {
   } else {
     return restaurants;
   }
+}
+
+const sortAlphabetically = (data) => {
+  return data.sort((a,b) => (a.name > b.name) ? 1 : -1);
 }

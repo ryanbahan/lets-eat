@@ -83,7 +83,7 @@ class Filter extends React.Component {
         {context => (
           <div className="Filter" style={filterStyles}>
             <p style={{cursor: "pointer"}} onClick={() => this.toggleDropdown()}>{this.props.name}</p>
-            <i class="fas fa-caret-down" onClick={() => this.toggleDropdown()} style={buttonStyles} ></i>
+            <i className="fas fa-caret-down" onClick={() => this.toggleDropdown()} style={buttonStyles} ></i>
             {this.state.dropdown && this.displayItems(this.props.items)}
           </div>
         )}

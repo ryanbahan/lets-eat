@@ -53,8 +53,8 @@ class RestaurantRow extends React.Component {
       <div className="RestaurantRow" style={rowStyles}>
         <p onClick={() => this.toggleDropdown()} style={titleStyles}>{name}</p>
         <div style={{display: "flex", alignItems: "baseline"}}>
-          <i class="fas fa-phone-volume" style={buttonStyles} ></i>
-          <i onClick={() => this.toggleDropdown()} class="fas fa-caret-down" style={buttonStyles} ></i>
+          <i className="fas fa-phone-volume" style={buttonStyles} ></i>
+          <i onClick={() => this.toggleDropdown()} className="fas fa-caret-down" style={buttonStyles} ></i>
         </div>
         {this.state.dropdown &&
           <div className="RestaurantRowDropdown" style={{flexBasis: "100%"}}>
