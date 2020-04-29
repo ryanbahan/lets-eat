@@ -6,6 +6,7 @@ export const MyContext = React.createContext();
 export default class MyProvider extends React.Component {
   state = {
     restaurants: [],
+    filters: [],
   }
 
   componentDidMount() {
@@ -13,8 +14,8 @@ export default class MyProvider extends React.Component {
     .then(data => this.setState({'restaurants': data}));
   }
 
-  update(key, value) {
-    this.setState({[key]: value})
+  update = (item) => {
+    this.setState(item)
   }
 
   render() {

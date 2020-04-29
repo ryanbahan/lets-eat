@@ -1,10 +1,12 @@
 import React from 'react';
+import { MyContext } from '../Context';
 
 class Filter extends React.Component {
+  static contextType = MyContext;
+
   constructor() {
     super();
     this.state = {
-      filteredItems: [],
       dropdown: false,
     }
   }
@@ -18,7 +20,7 @@ class Filter extends React.Component {
   }
 
   checkFilteredItems = (selection) => {
-    if (this.state.filteredItems.find(item => item === selection)) {
+    if (this.context.state.filters.find(item => item === selection)) {
       return false;
     } else {
       return true;
@@ -27,12 +29,12 @@ class Filter extends React.Component {
 
   updateForm = (selection) => {
     let updatedItems;
-    if (this.state.filteredItems.find(item => item === selection)) {
-      updatedItems = this.state.filteredItems.filter(item => item !== selection);
+    if (this.context.state.filters.find(item => item === selection)) {
+      updatedItems = this.context.state.filters.filter(item => item !== selection);
     } else {
-      updatedItems = this.state.filteredItems.concat([selection]);
+      updatedItems = this.context.state.filters.concat([selection]);
     }
-    this.setState({filteredItems: updatedItems});
+    this.context.update({filters: [...updatedItems]})
   }
 
   displayItems(items) {
@@ -55,11 +57,15 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <div className="Filter" style={{display: "flex", margin: "1rem", border: "solid 1px black", padding: "0 1rem"}}>
-        <p>{this.props.name}</p>
-        <p style={{paddingLeft: "0.25rem"}} onClick={() => this.toggleDropdown()}>></p>
-        {this.state.dropdown && this.displayItems(this.props.items)}
-      </div>
+      <MyContext.Consumer>
+      {context => (
+        <div className="Filter" style={{display: "flex", margin: "1rem", border: "solid 1px black", padding: "0 1rem"}}>
+          <p>{this.props.name}</p>
+          <p style={{paddingLeft: "0.25rem"}} onClick={() => this.toggleDropdown()}>></p>
+          {this.state.dropdown && this.displayItems(this.props.items)}
+        </div>
+      )}
+      </MyContext.Consumer>
     );
   }
 }
