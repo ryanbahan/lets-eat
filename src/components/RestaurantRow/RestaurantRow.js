@@ -87,7 +87,7 @@ class RestaurantRow extends React.Component {
             <p>{address1}</p>
             <p>{city}, {state}, {zip}</p>
             <a href={`tel:${telephone}`} style={linkStyles}>{telephone}</a>
-            <a href={{website}} style={linkStyles}>{website}</a>
+            <a href={website} style={linkStyles}>{website}</a>
             <p>tags: {tags}</p>
           </div>
         }
