@@ -46,37 +46,35 @@ class Form extends React.Component {
       margin: "0.5rem",
     };
 
+    const { restaurants } = this.context.state;
+
     return (
-      <MyContext.Consumer>
-        {context => (
-          <form className="Form" style={formStyles}>
-            <input
-              type="text"
-              onChange={this.update}
-              id="searchText"
-              placeholder="Search..."
-              style={inputStyles}
-            />
-            <div style={{display: "flex", flexBasis: "100%"}}>
-              <Filter
-                name="State"
-                items={getStates(context.state.restaurants)}
-              />
-              <Filter
-                name="Cuisine"
-                items={getGenres(context.state.restaurants)}
-              />
-              <button
-                type="button"
-                style={buttonStyles}
-                onClick={this.clearFilters}
-              >
-                Clear filters
-              </button>
-            </div>
-          </form>
-        )}
-      </MyContext.Consumer>
+      <form className="Form" style={formStyles}>
+        <input
+          type="text"
+          onChange={this.update}
+          id="searchText"
+          placeholder="Search..."
+          style={inputStyles}
+        />
+        <div style={{display: "flex", flexBasis: "100%"}}>
+          <Filter
+            name="State"
+            items={getStates(restaurants)}
+          />
+          <Filter
+            name="Cuisine"
+            items={getGenres(restaurants)}
+          />
+          <button
+            type="button"
+            style={buttonStyles}
+            onClick={this.clearFilters}
+          >
+            Clear filters
+          </button>
+        </div>
+      </form>
     );
   }
 }

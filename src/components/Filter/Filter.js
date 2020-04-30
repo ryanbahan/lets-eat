@@ -80,21 +80,17 @@ class Filter extends React.Component {
     };
 
     return (
-      <MyContext.Consumer>
-        {context => (
-          <div style={{flexWrap: "wrap"}}>
-            <button
-              type="button"
-              onClick={() => this.toggleDropdown()}
-              style={buttonStyles}
-            >
-              {this.props.name}
-              <i className="fas fa-caret-down"></i>
-            </button>
-            {this.state.dropdown && this.displayList(this.props.items)}
-          </div>
-        )}
-      </MyContext.Consumer>
+      <div style={{flexWrap: "wrap"}}>
+        <button
+          type="button"
+          onClick={() => this.toggleDropdown()}
+          style={buttonStyles}
+        >
+          {this.props.name}
+          <i className="fas fa-caret-down"></i>
+        </button>
+        {this.state.dropdown && this.displayList(this.props.items)}
+      </div>
     );
   }
 }
